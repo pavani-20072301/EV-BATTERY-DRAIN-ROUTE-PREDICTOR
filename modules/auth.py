@@ -40,17 +40,34 @@ def check_login():
     
     # Apply Blue / Black / White Theme & Sidebar Hiding Rule
     if not st.session_state.get("logged_in", False):
-        st.markdown("""
+        # Apply Rich Dark Blue Theme & High-Contrast Text Styling
+        if not st.session_state.get("logged_in", False):
+            st.markdown("""
             <style>
-                [data-testid="stSidebar"] { display: none; }
-                .stApp { background-color: #0b0f19; color: #ffffff; }
-                .stTextInput input { background-color: #121826; color: #ffffff; border: 1px solid #1e90ff; }
-                .stButton button { background-color: #1e90ff; color: white; font-weight: bold; border-radius: 6px; }
-            </style>
-        """, unsafe_allow_html=True)
+                /* Lock uniform dark blue background */
+                [data-testid="stSidebar"] { background-color: #111c38 !important; }
+                .stApp { background-color: #0a1128 !important; }
         
-        st.markdown("<br><h1 style='text-align: center; color: #00ffcc;'>⚡ EV Range Intelligence Portal</h1>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: #a0aec0;'>Battery Drain and Route Range Predictor</p><br>", unsafe_allow_html=True)
+                /* Make all headers, labels, and text bright white */
+                h1, h2, h3, p, label, span, div { color: #ffffff !important; }
+        
+               /* Make text inputs dark blue with bright white text */
+               .stTextInput input {
+                   background-color: #111c38 !important;
+                   color: #ffffff !important;
+                   border: 1px solid #00f2fe !important;
+               }
+        
+              /* High-contrast placeholder text */
+              ::placeholder {
+              color: #a0aec0 !important;
+              opacity: 1 !important;
+              }
+         </style>
+         """, unsafe_allow_html=True)
+
+         st.markdown("<br><h1 style='text-align: center; color: #00f2fe;'>⚡ EV Range Intelligence Portal</h1>", unsafe_allow_html=True)
+         st.markdown("<p style='text-align: center; color: #ffffff; font-size: 18px; font-weight: 600;'>AI-Powered EV Battery Drain & Route Range Predictor</p><br>", unsafe_allow_html=True)
         
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
