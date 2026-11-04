@@ -50,7 +50,7 @@ def check_login():
         """, unsafe_allow_html=True)
         
         st.markdown("<br><h1 style='text-align: center; color: #00ffcc;'>⚡ EV Range Intelligence Portal</h1>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: #a0aec0;'>Secure Academic Evaluation & Telemetry System</p><br>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: #a0aec0;'>Battery Drain and Route Range Predictor</p><br>", unsafe_allow_html=True)
         
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
