@@ -1,0 +1,24 @@
+/* Custom Styling for EV Range Predictor */
+
+/* Main Title Style */
+h1 {
+    color: #1E88E5 !important;
+    font-weight: 700 !important;
+}
+
+/* Metric Card Containers */
+[data-testid="stMetricValue"] {
+    font-size: 1.8rem !important;
+    color: #0D47A1 !important;
+    font-weight: bold !important;
+}
+
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+    background-color: #F4F6F9 !important;
+}
+
+/* Custom Alert Boxes */
+.stAlert {
+    border-radius: 8px !important;
+}
