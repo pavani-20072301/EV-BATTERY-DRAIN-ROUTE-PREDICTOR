@@ -1,0 +1,58 @@
+# ⚡ EV Range & Route Intelligence System
+
+An enterprise-grade, multi-page Streamlit application that predicts real-time Electric Vehicle (EV) battery consumption, range viability, and route energy drain using Machine Learning combined with live public GIS, traffic, weather, and charging infrastructure telemetry.
+
+---
+
+## 📌 Features & Highlights
+
+* **🧠 Machine Learning Core**: Random Forest Regressor (`models/ev_rf_model.pkl`) trained on trip distance, ambient temperature, estimated vehicle speed, and dynamic payload.
+* **🚗 Dynamic Vehicle Selector**: Pre-configured profiles for multiple popular EV models with custom battery capacities (kWh) and base efficiency ratings (Wh/km).
+* **⚖️ Smart Payload Estimator**:
+  * Passenger weight slider (kg) for rapid adjustment.
+  * User-friendly luggage selection dropdown (Backpack, Standard Suitcase, Family Trip, Heavy Cargo) mapped automatically to exact numerical kilograms.
+* **🏎️ Driver Behavior & Terrain Physics**:
+  * **Driving Mode Selector**: *Eco-Cruising*, *Normal*, and *Sport/Aggressive* modes dynamically scale speed inputs.
+  * **Terrain Profile Selector**: *Flat Highway (1.0x)*, *Rolling Hills (1.12x)*, and *Steep Mountain Pass (1.28x)* physics multipliers.
+* **🌱 Green Tech Sustainability Metrics**: Calculates real-time **CO₂ emissions saved (kg)** compared to petrol vehicles and **estimated fuel cost savings**.
+* **🌐 Live Telemetry Integration (Simulated Connectivity)**:
+  * **OpenStreetMap Nominatim API**: Geocoding origin and destination locations.
+  * **OSRM (Open Source Routing Machine) API**: Dynamic road distance calculation and polyline geometry generation.
+  * **Open-Meteo API**: Live ambient temperature and wind speed telemetry.
+  * **Overpass API**: Live query and map overlay of real-world EV charging infrastructure along the route corridor.
+* **🎨 Dark-Tech Professional Interface**: Native `.streamlit/config.toml` styling with custom Folium interactive mapping and session-state persistence across pages.
+
+---
+
+## 📁 Project Directory Structure
+
+```text
+your-project-folder/
+│
+├── .streamlit/
+│   └── config.toml                  # Dark theme styling configuration
+│
+├── dataset/
+│   └── EV_Range_Prediction_Dataset_2000.csv  # Model training dataset
+│
+├── models/
+│   └── ev_rf_model.pkl              # Trained Random Forest ML model
+│
+├── modules/
+│   ├── auth.py                      # Authentication / Login logic
+│   ├── clean_data.py                 # Data cleaning utilities
+│   └── vehicle_dict.py              # EV vehicle specifications dictionary
+│
+├── pages/
+│   ├── 1_Live_Prediction.py         # Journey inputs, API queries & ML prediction
+│   └── 2_Route_map.py               # Folium interactive route map & charging stations
+│
+├── static/
+│   └── logo.png                     # Sidebar branding logo
+│
+├── Templates/
+│   └── .gitkeep                     # Template placeholder
+│
+├── app.py                           # Application entry point / Landing page
+├── Readme.md                        # Documentation
+└── train.py                         # Model training script
