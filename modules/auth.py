@@ -34,41 +34,38 @@ def logout():
     st.session_state.username = ""
     st.session_state.name = ""
     st.rerun()
-
 def check_login():
     init_auth_state()
-    
-    # Apply Blue / Black / White Theme & Sidebar Hiding Rule
-    if not st.session_state.get("logged_in", False):
-        # Apply Rich Dark Blue Theme & High-Contrast Text Styling
-        if not st.session_state.get("logged_in", False):
-            st.markdown("""
-            <style>
-                /* Lock uniform dark blue background */
-                [data-testid="stSidebar"] { background-color: #111c38 !important; }
-                .stApp { background-color: #0a1128 !important; }
-        
-                /* Make all headers, labels, and text bright white */
-                h1, h2, h3, p, label, span, div { color: #ffffff !important; }
-        
-               /* Make text inputs dark blue with bright white text */
-               .stTextInput input {
-                   background-color: #111c38 !important;
-                   color: #ffffff !important;
-                   border: 1px solid #00f2fe !important;
-               }
-        
-              /* High-contrast placeholder text */
-              ::placeholder {
-              color: #a0aec0 !important;
-              opacity: 1 !important;
-              }
-         </style>
-         """, unsafe_allow_html=True)
 
-         st.markdown("<br><h1 style='text-align: center; color: #00f2fe;'>⚡ EV Range Intelligence Portal</h1>", unsafe_allow_html=True)
-         st.markdown("<p style='text-align: center; color: #ffffff; font-size: 18px; font-weight: 600;'>AI-Powered EV Battery Drain & Route Range Predictor</p><br>", unsafe_allow_html=True)
-        
+    # Apply Rich Dark Blue Theme & Sidebar Hiding Rule
+    if not st.session_state.get("logged_in", False):
+        st.markdown("""
+        <style>
+            /* Lock uniform dark blue background */
+            [data-testid="stSidebar"] { background-color: #111c38 !important; }
+            .stApp { background-color: #0a1128 !important; }
+            
+            /* Make all headers, labels, and text bright white */
+            h1, h2, h3, p, label, span, div { color: #ffffff !important; }
+            
+            /* Make text inputs dark blue with bright white text */
+            .stTextInput input {
+                background-color: #111c38 !important;
+                color: #ffffff !important;
+                border: 1px solid #00f2fe !important;
+            }
+            
+            /* High-contrast placeholder text */
+            ::placeholder {
+                color: #a0aec0 !important;
+                opacity: 1 !important;
+            }
+        </style>
+        """, unsafe_allow_html=True)
+
+        st.markdown("<br><h1 style='text-align: center; color: #00f2fe;'>⚡ EV Range Intelligence Portal</h1>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: #ffffff; font-size: 18px; font-weight: 600;'>AI-Powered EV Battery Drain & Route Range Predictor</p><br>", unsafe_allow_html=True)
+
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
             # STEP 1: Enter Email or Phone Number
